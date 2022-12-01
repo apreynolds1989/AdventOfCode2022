@@ -1,0 +1,24 @@
+{
+  "name": "adventofcode2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpileOnly src/index.ts",
+    "dev:debug": "ts-node-dev --inspect=4321 --respawn --transpileOnly src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apreynolds1989/AdventOfCode2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apreynolds1989/AdventOfCode2022/issues"
+  },
+  "homepage": "https://github.com/apreynolds1989/AdventOfCode2022#readme",
+  "dependencies": {
+    "ts-node-dev": "^2.0.0"
+  }
+}
