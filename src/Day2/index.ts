@@ -92,3 +92,58 @@ const tallyPoints = (arr: (string | undefined)[][]) => {
 
 const array = decipherChoices(readFile(file));
 console.log('Total:', tallyPoints(array));
+
+/// PART 2 ///
+
+const determineStrategicChoices = (arr: string[][]): (string | undefined)[][] => {
+    return arr.map((innerArr) =>
+        innerArr.map((element) => {
+            switch (element) {
+                case 'A':
+                    return 'Rock';
+                case 'B':
+                    return 'Paper';
+                case 'C':
+                    return 'Scissors';
+                case 'X':
+                    switch (innerArr[0]) {
+                        case 'A':
+                            return 'Scissors';
+                        case 'B':
+                            return 'Rock';
+                        case 'C':
+                            return 'Paper';
+                        default:
+                            break;
+                    }
+                case 'Y':
+                    switch (innerArr[0]) {
+                        case 'A':
+                            return 'Rock';
+                        case 'B':
+                            return 'Paper';
+                        case 'C':
+                            return 'Scissors';
+                        default:
+                            break;
+                    }
+                case 'Z':
+                    switch (innerArr[0]) {
+                        case 'A':
+                            return 'Paper';
+                        case 'B':
+                            return 'Scissors';
+                        case 'C':
+                            return 'Rock';
+                        default:
+                            break;
+                    }
+                default:
+                    break;
+            }
+        })
+    );
+};
+
+const array2 = determineStrategicChoices(readFile(file));
+console.log('Strategic Total:', tallyPoints(array2));
