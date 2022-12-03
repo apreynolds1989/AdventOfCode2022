@@ -32,4 +32,33 @@ const getCharCodeTotal = (arr: string[]) => {
     return sum;
 };
 
-console.log(getCharCodeTotal(readFile(file)));
+console.log('Sum of Common Item type Priorities:', getCharCodeTotal(readFile(file)));
+
+/// Part 2 ///
+
+const getBadgeCharCodeTotal = (arr: string[]) => {
+    const seperatedArr: string[][] = [];
+    let subArr: string[] = [];
+    let sum = 0;
+
+    arr.forEach((string, index) => {
+        subArr.push(string);
+        if ((index + 1) % 3 === 0) {
+            seperatedArr.push(subArr);
+            subArr = [];
+        }
+    });
+    seperatedArr.forEach((subArr) => {
+        let commonLetter = '';
+        [...subArr[0]].forEach((letter) => {
+            if (subArr[1].includes(letter) && subArr[2].includes(letter)) commonLetter = letter;
+        });
+        sum +=
+            commonLetter === commonLetter.toUpperCase()
+                ? commonLetter.charCodeAt(0) - 38
+                : commonLetter.charCodeAt(0) - 96;
+    });
+    return sum;
+};
+
+console.log('Sum of Badge Prioroites:', getBadgeCharCodeTotal(readFile(file)));
