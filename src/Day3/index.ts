@@ -6,15 +6,6 @@ const readFile = (filename: string): string[] => {
     return readFileSync(filename, 'utf-8').split(/\r?\n/);
 };
 
-const test = [
-    'vJrwpWtwJgWrhcsFMMfFFhFp',
-    'jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL',
-    'PmmdzqPrVvPwwTWBwg',
-    'wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn',
-    'ttgJtRGJQctTZtZT',
-    'CrZsJsPPZsGzwwsLwLmpwMDw',
-];
-
 const getCharCodeTotal = (arr: string[]) => {
     let sum = 0;
     arr.forEach((string) => {

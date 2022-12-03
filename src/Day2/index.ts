@@ -8,12 +8,6 @@ const readFile = (filename: string): string[][] => {
     return fileContents.map((string) => string.split(' '));
 };
 
-const testInput = [
-    ['A', 'Y'],
-    ['B', 'X'],
-    ['C', 'Z'],
-];
-
 const decipherChoices = (arr: string[][]): (string | undefined)[][] => {
     return arr.map((innerArr) =>
         innerArr.map((element) => {
