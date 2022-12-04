@@ -13,18 +13,18 @@ const readFile = (filename: string): number[][] => {
 
 const assignments = readFile(file);
 
-const test = [
-    [2, 4, 6, 8],
-    [2, 3, 4, 5],
-    [5, 7, 7, 9],
-    [2, 8, 3, 7],
-    [6, 6, 4, 6],
-    [2, 6, 4, 8],
-];
-
 const containedAssignments = assignments.filter(
     (pairs) =>
         (pairs[0] >= pairs[2] && pairs[1] <= pairs[3]) ||
         (pairs[0] <= pairs[2] && pairs[1] >= pairs[3])
 );
 console.log(containedAssignments.length);
+
+/// Part Two ///
+
+const noOverlapAssignments = assignments.filter(
+    (pairs) => pairs[1] < pairs[2] || pairs[3] < pairs[0]
+);
+const overlappingAssignments = assignments.length - noOverlapAssignments.length;
+
+console.log(overlappingAssignments);
