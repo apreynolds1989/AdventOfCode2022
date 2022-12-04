@@ -1,5 +1,4 @@
 import { readFileSync } from 'fs';
-
 const file = 'input.txt';
 
 const readFile = (filename: string): number[][] => {
@@ -22,9 +21,10 @@ console.log(containedAssignments.length);
 
 /// Part Two ///
 
-const noOverlapAssignments = assignments.filter(
-    (pairs) => pairs[1] < pairs[2] || pairs[3] < pairs[0]
+const overlappingAssignments = assignments.filter(
+    (pairs) =>
+        (pairs[0] >= pairs[2] && pairs[0] <= pairs[3]) ||
+        (pairs[2] >= pairs[0] && pairs[2] <= pairs[1])
 );
-const overlappingAssignments = assignments.length - noOverlapAssignments.length;
 
-console.log(overlappingAssignments);
+console.log(overlappingAssignments.length);
